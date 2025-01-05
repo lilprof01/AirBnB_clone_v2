@@ -37,6 +37,14 @@ class FileStorage:
 
     def all(self):
         """Return all instances stored"""
+        if cls is not None:
+            if type(cls) == str:
+                cls = eval(cls)
+            cls_dict = {}
+            for k, v in self.__objects.items():
+                if type(v) == cls:
+                    cls_dict[k] = v
+            return cls_dict
         return FileStorage.__objects
 
     def new(self, obj):
