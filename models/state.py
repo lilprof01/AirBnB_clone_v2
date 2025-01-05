@@ -1,8 +1,14 @@
 #!/usr/bin/python3
 """Module contains State class."""
 
+import models
+from os import getenv
+from models.base_model import Base
 from models.base_model import BaseModel
-
+from models.city import City
+from sqlalchemy import Column
+from sqlalchemy import String
+from sqlalchemy.orm import relationship
 
 class State(BaseModel, Base):
     """Class representing a State."""
