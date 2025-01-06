@@ -1,16 +1,15 @@
-#!/usr/bin/pythin
-"""
-updated the init file
-"""
-from models.engine import file_storage
+#!/usr/bin/python3
+"""This module ifor an instance of the Storage"""
+
 from os import getenv
 
+storage_type = getenv('HBNB_TYPE_STORAGE')
 
-
-if getenv("HBNB_TYPE_STORAGE") == "db":
+if storage_type == 'db':
     from models.engine.db_storage import DBStorage
     storage = DBStorage()
 else:
     from models.engine.file_storage import FileStorage
     storage = FileStorage()
+
 storage.reload()
