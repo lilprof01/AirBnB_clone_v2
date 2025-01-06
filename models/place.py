@@ -2,7 +2,7 @@
 """Module contains Place class."""
 
 from models.base_model import BaseModel
-
+from sqlalchemy.orm import relationship
 
 class Place(BaseModel):
     """Class representing a Place."""
