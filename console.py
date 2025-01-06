@@ -21,6 +21,8 @@ classes = storage.models
 class HBNBCommand(cmd.Cmd):
     """ does various HBNB commands """
     prompt = "(hbnb) "
+    valid_classes = ["BaseModel", "User", "Amenity",
+                     "Place", "Review", "State", "City"]
 
     # Commands
     def do_EOF(self, args):
@@ -40,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
         Usage: create <class_name>
         """
         try:
-            class_name = arg.split(" ")[0]
+            class_name = args.split(" ")[0]
             if len(class_name) == 0:
                 print("** class name missing **")
                 return
@@ -49,7 +51,7 @@ class HBNBCommand(cmd.Cmd):
                 return
 
             kwargs = {}
-            commands = arg.split(" ")
+            commands = args.split(" ")
             for i in range(1, len(commands)):
                 
                 key = commands[i].split("=")[0]

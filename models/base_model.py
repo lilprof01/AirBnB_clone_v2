@@ -18,26 +18,22 @@ class BaseModel:
     id = Column(String(60), primary_key=True, nullable=False)
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow())
     updated_at = Column(DateTime, nullable=False, default=datetime.utcnow())
-    
+
     def __init__(self, *args, **kwargs):
-        """a constructor to initialize this class
+        """Initialize a new BaseModel.
 
         Args:
-            args: input
-            kwargs: input
+            *args (any): Unused.
+            **kwargs (dict): Key/value pairs of attributes.
         """
-        if len(kwargs) > 0:
+        self.id = str(uuid4())
+        self.created_at = self.updated_at = datetime.utcnow()
+        if kwargs:
             for key, value in kwargs.items():
-                if key == '__class__':
-                    setattr(self, key, value)
                 if key == "created_at" or key == "updated_at":
-                    value = datetime.fromisoformat(value)
-                setattr(self, key, value)
-            return
-        else:
-            self.id = str(uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
+                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                if key != "__class__":
+                    setattr(self, key, value)    
 
     def __str__(self):
         """string representation of class"""
