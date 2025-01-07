@@ -16,4 +16,4 @@ class Review(BaseModel, Base):
     else:
         place_id = ""
         user_id = ""
-        text = ""i
+        text = ""
