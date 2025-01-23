@@ -8,8 +8,8 @@ from datetime import datetime
 
 def do_pack():
     """
-        function will return the archive path if archive 
-	has been correctly gernerated.
+        function will return the archive path if archive
+        has been correctly gernerated.
     """
 
     local("mkdir -p versions")
