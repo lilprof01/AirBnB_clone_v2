@@ -1,23 +1,23 @@
 #!/usr/bin/python3
-""" Function that deploys """
+""" Function that deletes outdated archives """
 from fabric.api import *
 
 
-env.hosts = ["54.146.14.173", "54.158.218.254"]
+env.hosts = ["34.202.158.130", "100.25.158.166"]
 env.user = "ubuntu"
 
 
-def do_clean(num=0):
+def do_clean(number=0):
     """
-    cleans
+    cleans up outdated archives
     """
 
-    num = int(num)
+    number = int(number)
 
-    if num == 0:
+    if number == 0:
         nums = 1
     else:
-        nums = num
+        nums = number
 
     local('cd versions ; ls -t | head -n -{} | xargs rm -rf'.format(nums))
     path = '/data/web_static/releases'

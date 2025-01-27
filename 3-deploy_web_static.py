@@ -1,5 +1,5 @@
 #!/usr/bin/python3i
-"""Fabric script (based on the file 1-pack_web_static.py)
+"""Fabric script extended from file 1-pack_web_static.py
 """
 import time
 import os
@@ -7,7 +7,7 @@ from fabric.api import *
 from fabric.operations import run, put
 
 
-env.hosts = ['54.146.14.173', '54.158.218.254']
+env.hosts = ['34.202.158.130', '100.25.158.166']
 env.user = 'ubuntu'
 env.key_filename = '~/.ssh/id_rsa'
 

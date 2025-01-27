@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module that generates a .tgz from the contents of web_static
+Module that generates a .tgz archive from the contents of web_static folder
 """
 from fabric.api import local
 from datetime import datetime
@@ -8,7 +8,7 @@ from datetime import datetime
 
 def do_pack():
     """
-        function will return the archive path if archive
+        this function will return path to archive if archive
         has been correctly gernerated.
     """
 
